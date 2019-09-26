@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lNH-gg-2oS">
-                                <rect key="frame" x="0.0" y="75" width="768" height="30"/>
+                                <rect key="frame" x="5" y="75" width="758" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -38,8 +38,8 @@
                             <constraint firstItem="tt2-0l-gZQ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="FUt-99-qdL"/>
                             <constraint firstItem="tt2-0l-gZQ" firstAttribute="top" secondItem="lNH-gg-2oS" secondAttribute="bottom" constant="5" id="PxK-ce-Cwn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tt2-0l-gZQ" secondAttribute="bottom" id="W43-J5-ddC"/>
-                            <constraint firstItem="lNH-gg-2oS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="x0R-Ge-Olx"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lNH-gg-2oS" secondAttribute="trailing" id="zJz-dV-vCp"/>
+                            <constraint firstItem="lNH-gg-2oS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="x0R-Ge-Olx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lNH-gg-2oS" secondAttribute="trailing" constant="5" id="zJz-dV-vCp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
