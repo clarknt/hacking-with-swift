@@ -17,6 +17,8 @@ class ViewController: UIViewController, WKNavigationDelegate, UIGestureRecognize
     // weak because the user might delete it at any time
     weak var activeWebView: WKWebView?
 
+    var placeholderView: UIView?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,9 +31,52 @@ class ViewController: UIViewController, WKNavigationDelegate, UIGestureRecognize
 
     func setDefaultTitle() {
         title = "Multibrowser"
+
+        // bonus: when there's no view, clear address bar, and disable it
+        addressBar.text = ""
+        addressBar.isEnabled = false
+
+        // challenge 2
+        stackView.addArrangedSubview(getPlaceholderView())
+    }
+
+    // challenge 2
+    func getPlaceholderView() -> UIView {
+        // reuse existing one if available
+        guard placeholderView == nil else { return placeholderView! }
+
+        // create label
+        let placeholderLabel = UILabel()
+        placeholderLabel.text = "Hint: tap the + button to add a browser view."
+        placeholderLabel.textAlignment = .center
+        placeholderLabel.numberOfLines = 0
+        placeholderLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        // add it to a view
+        placeholderView = UIView()
+        placeholderView!.addSubview(placeholderLabel)
+
+        // expand it to fill the view
+        placeholderLabel.leadingAnchor.constraint(equalTo: placeholderView!.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        placeholderLabel.trailingAnchor.constraint(equalTo: placeholderView!.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        placeholderLabel.topAnchor.constraint(equalTo: placeholderView!.safeAreaLayoutGuide.topAnchor).isActive = true
+        placeholderLabel.bottomAnchor.constraint(equalTo: placeholderView!.safeAreaLayoutGuide.bottomAnchor).isActive = true
+
+        return placeholderView!
     }
 
     @objc func addWebView() {
+        // challenge 2
+        if stackView.arrangedSubviews.count == 1 && stackView.arrangedSubviews[0] == placeholderView {
+            if let placeholderView = placeholderView {
+                stackView.removeArrangedSubview(placeholderView)
+                placeholderView.removeFromSuperview()
+            }
+        }
+
+        // bonus: reenable address bar when a view is shown
+        addressBar.isEnabled = true
+
         let webView = WKWebView()
         webView.navigationDelegate = self
 
@@ -79,8 +124,6 @@ class ViewController: UIViewController, WKNavigationDelegate, UIGestureRecognize
                 // no more views: reset title
                 if stackView.arrangedSubviews.count == 0 {
                     setDefaultTitle()
-                    // clear address bar as well
-                    addressBar.text = ""
                 }
                 else {
                     var currentIndex = Int(index)
