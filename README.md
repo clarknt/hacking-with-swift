@@ -11,6 +11,13 @@ First 30 projects are available in the separate repository [100 days of Swift](h
 
 Type               | Number   | Completion
 :---               |  :---:   |   :---:
-Projects           | 30 / 39  | 76%
-Challenges         | 90 / 116 | 77%
+Projects           | 31 / 39  | 79%
+Challenges         | 92 / 116 | 79%
 
+## Preview
+
+*Within each project are larger versions of the screenshots.*
+
+Projects / Topics                                                                                                                                                            | Screenshots
+---                                                                                                                                                                          |---
+[Project 31](01-Project31) (with challenges)                                         <br/><sub> UIStackView, iPad multitasking                               </sub> | ![screen1](01-Project31/screenshots/small/screen01.png) ![screen2](01-Project31/screenshots/small/screen02.png) ![screen3](01-Project31/screenshots/small/screen03.png) |
