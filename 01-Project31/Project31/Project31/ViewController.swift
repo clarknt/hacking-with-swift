@@ -67,7 +67,34 @@ class ViewController: UIViewController, WKNavigationDelegate, UIGestureRecognize
     }
 
     @objc func deleteWebView() {
+        if let webView = activeWebView {
+            if let index = stackView.arrangedSubviews.firstIndex(of: webView) {
+                // remove from the stackView
+                stackView.removeArrangedSubview(webView)
 
+                // but also from the view hierarchy (important - removing from the stack view
+                // hids the view but does not destroy it, for optional later reuse)
+                webView.removeFromSuperview()
+
+                // no more views: reset title
+                if stackView.arrangedSubviews.count == 0 {
+                    setDefaultTitle()
+                }
+                else {
+                    var currentIndex = Int(index)
+
+                    // was the last stackView in the stack
+                    if currentIndex == stackView.arrangedSubviews.count {
+                        currentIndex = stackView.arrangedSubviews.count - 1
+                    }
+
+                    if let newSelectedWebView = stackView.arrangedSubviews[currentIndex] as? WKWebView {
+                        selectWebView(newSelectedWebView)
+                    }
+                }
+
+            }
+        }
     }
 
     // MARK:- UIGestureRecognizerDelegate
