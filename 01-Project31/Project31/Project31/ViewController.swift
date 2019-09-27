@@ -50,7 +50,6 @@ class ViewController: UIViewController, WKNavigationDelegate, UIGestureRecognize
     }
 
     func selectWebView(_ webView: WKWebView) {
-        print("hi")
         for view in stackView.arrangedSubviews {
             view.layer.borderWidth = 0
         }
@@ -60,7 +59,6 @@ class ViewController: UIViewController, WKNavigationDelegate, UIGestureRecognize
     }
 
     @objc func webViewTapped(_ recognizer: UIGestureRecognizer) {
-        print("Hello")
         if let selectedWebView = recognizer.view as? WKWebView {
             selectWebView(selectedWebView)
         }
@@ -102,7 +100,6 @@ class ViewController: UIViewController, WKNavigationDelegate, UIGestureRecognize
     // allow tap gesture to be recognized along the the ones built in the webview
     // otherwise the gesture would be captured by the webview only
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        print("hey")
         return true
     }
 
