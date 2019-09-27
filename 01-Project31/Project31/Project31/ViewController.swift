@@ -133,7 +133,12 @@ class ViewController: UIViewController, WKNavigationDelegate, UIGestureRecognize
 
     // return key pressed
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if let webView = activeWebView, let address = addressBar.text {
+        if let webView = activeWebView, var address = addressBar.text {
+            // challenge 1
+            if !address.starts(with: "http://") && !address.starts(with: "https://") {
+                address = "https://" + address
+            }
+
             if let url = URL(string: address) {
                 webView.load(URLRequest(url: url))
             }
