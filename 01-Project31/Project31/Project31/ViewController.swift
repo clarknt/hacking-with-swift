@@ -56,6 +56,8 @@ class ViewController: UIViewController, WKNavigationDelegate, UIGestureRecognize
 
         activeWebView = webView
         webView.layer.borderWidth = 3
+
+        updateUI(for: webView)
     }
 
     @objc func webViewTapped(_ recognizer: UIGestureRecognizer) {
@@ -77,6 +79,8 @@ class ViewController: UIViewController, WKNavigationDelegate, UIGestureRecognize
                 // no more views: reset title
                 if stackView.arrangedSubviews.count == 0 {
                     setDefaultTitle()
+                    // clear address bar as well
+                    addressBar.text = ""
                 }
                 else {
                     var currentIndex = Int(index)
@@ -92,6 +96,28 @@ class ViewController: UIViewController, WKNavigationDelegate, UIGestureRecognize
                 }
 
             }
+        }
+    }
+
+    func updateUI(for webView: WKWebView) {
+        title = webView.title
+        addressBar.text = webView.url?.absoluteString ?? ""
+    }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        if traitCollection.horizontalSizeClass == .compact {
+            stackView.axis = .vertical
+        }
+        else {
+            stackView.axis = .horizontal
+        }
+    }
+
+    // MARK:- WKNavigationDelegate
+
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        if webView == activeWebView {
+            updateUI(for: webView)
         }
     }
 
