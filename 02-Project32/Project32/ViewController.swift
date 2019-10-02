@@ -79,11 +79,29 @@ class ViewController: UITableViewController {
         let subtitleAttributes = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .subheadline)]
 
         let titleString = NSMutableAttributedString(string: "\(title)\n", attributes: titleAttributes)
-        let subtitleString = NSAttributedString(string: subtitle, attributes: subtitleAttributes)
+        let subtitleString = NSMutableAttributedString(string: subtitle, attributes: subtitleAttributes)
+
+        // challenge 2: highlight some known keywords
+        highlight(in: subtitle, wordsStartingWith: ["UI", "CA", "URL", "NS", "WK"], attributedString: subtitleString)
 
         titleString.append(subtitleString)
 
         return titleString
+    }
+
+    // challenge 2
+    func highlight(in s: String, wordsStartingWith prefixes: [String], attributedString: NSMutableAttributedString) {
+        s.enumerateSubstrings(in: s.startIndex..<s.endIndex, options: .byWords) { (substring, substringRange, _, _) in
+            guard let substring = substring else { return }
+
+            for prefix in prefixes {
+                guard substring.starts(with: prefix) else { continue }
+
+                attributedString.addAttribute(NSAttributedString.Key.backgroundColor,
+                                          value: UIColor.black.withAlphaComponent(0.03),
+                                          range: NSRange(substringRange, in: s))
+            }
+        }
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -159,4 +177,3 @@ class ViewController: UITableViewController {
         }
     }
 }
-
