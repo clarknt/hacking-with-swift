@@ -6,7 +6,7 @@ Includes solutions to the [challenges](https://www.hackingwithswift.com/read/32/
 
 ## Topics
 
-Core Spotlight, SFSafariViewController, NSAttributedString, automatically sized table view cells, Dynamic Type
+Core Spotlight, SFSafariViewController, NSAttributedString, Automatically sized table view cells, Dynamic Type
 
 ## Challenges
 
