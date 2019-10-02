@@ -15,3 +15,9 @@ From [Hacking with Swift](https://www.hackingwithswift.com/read/31/6/wrap-up):
 >2. I'd also recommend you investigate some of the many other formatting options you can use with NSAttributedString. Right-click on NSAttributedString.Key.font and choose Jump to Definition to see a list, and just try things out! You'll see that Apple has put comments next to each key so you can see what kind of data to provide.
 >3. There's one more thing, which is the user changing their Dynamic Type size. This won't happen very often, but if it happens while your app is running you'll receive the UIContentSizeCategoryDidChange notification if you subscribe to it using NotificationCenter. This is your chance to refresh your user interface so that it’s drawn at a larger size if needed, but many UIKit components should adapt themselves by default.
 
+## Screenshots
+
+![screenshot1](screenshots/screen01.png)
+![screenshot2](screenshots/screen02.png)
+![screenshot3](screenshots/screen03.png)
+![screenshot3](screenshots/screen04.png)
