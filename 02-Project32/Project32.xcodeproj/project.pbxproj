@@ -12,6 +12,8 @@
 		954C37EC23424050002A6E68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 954C37EA23424050002A6E68 /* Main.storyboard */; };
 		954C37EE23424051002A6E68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 954C37ED23424051002A6E68 /* Assets.xcassets */; };
 		954C37F123424051002A6E68 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 954C37EF23424051002A6E68 /* LaunchScreen.storyboard */; };
+		95F477FE2344ECA30098ED06 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F477FD2344ECA30098ED06 /* Project.swift */; };
+		95F478002344F2090098ED06 /* projects.json in Resources */ = {isa = PBXBuildFile; fileRef = 95F477FF2344F2090098ED06 /* projects.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		954C37ED23424051002A6E68 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		954C37F023424051002A6E68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		954C37F223424051002A6E68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95F477FD2344ECA30098ED06 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		95F477FF2344F2090098ED06 /* projects.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = projects.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +60,12 @@
 			children = (
 				954C37E623424050002A6E68 /* AppDelegate.swift */,
 				954C37E823424050002A6E68 /* ViewController.swift */,
+				95F477FD2344ECA30098ED06 /* Project.swift */,
 				954C37EA23424050002A6E68 /* Main.storyboard */,
 				954C37ED23424051002A6E68 /* Assets.xcassets */,
 				954C37EF23424051002A6E68 /* LaunchScreen.storyboard */,
 				954C37F223424051002A6E68 /* Info.plist */,
+				95F477FF2344F2090098ED06 /* projects.json */,
 			);
 			path = Project32;
 			sourceTree = "<group>";
@@ -125,6 +131,7 @@
 				954C37F123424051002A6E68 /* LaunchScreen.storyboard in Resources */,
 				954C37EE23424051002A6E68 /* Assets.xcassets in Resources */,
 				954C37EC23424050002A6E68 /* Main.storyboard in Resources */,
+				95F478002344F2090098ED06 /* projects.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +144,7 @@
 			files = (
 				954C37E923424050002A6E68 /* ViewController.swift in Sources */,
 				954C37E723424050002A6E68 /* AppDelegate.swift in Sources */,
+				95F477FE2344ECA30098ED06 /* Project.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
