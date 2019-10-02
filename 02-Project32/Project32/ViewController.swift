@@ -25,6 +25,10 @@ class ViewController: UITableViewController {
         tableView.isEditing = true
         tableView.allowsSelectionDuringEditing = true
 
+        // challenge 3
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(contentSizeCategoryDidChange), name: UIContentSizeCategory.didChangeNotification, object: nil)
+
         // challenge 1
         performSelector(inBackground: #selector(loadData), with: nil)
     }
@@ -51,6 +55,16 @@ class ViewController: UITableViewController {
         }
 
         tableView.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
+    }
+
+    // challenge 3
+    @objc func contentSizeCategoryDidChange() {
+        // only this combination seems to work when switching from a large font to a small one
+        // without that the cell height is to small, making the subtitle disappear
+        for cell in tableView.visibleCells {
+            cell.textLabel?.numberOfLines = 0
+        }
+        tableView.reloadData()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
