@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9558A6092346CA81009FA08B /* SelectGenreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9558A6082346CA81009FA08B /* SelectGenreViewController.swift */; };
+		9558A60B2346CC98009FA08B /* AddCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9558A60A2346CC98009FA08B /* AddCommentsViewController.swift */; };
 		95F88DFB234682460009EA2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F88DFA234682460009EA2E /* AppDelegate.swift */; };
 		95F88DFD234682460009EA2E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F88DFC234682460009EA2E /* ViewController.swift */; };
 		95F88E00234682460009EA2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95F88DFE234682460009EA2E /* Main.storyboard */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9558A6082346CA81009FA08B /* SelectGenreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGenreViewController.swift; sourceTree = "<group>"; };
+		9558A60A2346CC98009FA08B /* AddCommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentsViewController.swift; sourceTree = "<group>"; };
 		95F88DF7234682460009EA2E /* Project33.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project33.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95F88DFA234682460009EA2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95F88DFC234682460009EA2E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +63,8 @@
 				95F88DFA234682460009EA2E /* AppDelegate.swift */,
 				95F88DFC234682460009EA2E /* ViewController.swift */,
 				95F88E0C2346834C0009EA2E /* RecordWhistleViewController.swift */,
+				9558A6082346CA81009FA08B /* SelectGenreViewController.swift */,
+				9558A60A2346CC98009FA08B /* AddCommentsViewController.swift */,
 				95F88DFE234682460009EA2E /* Main.storyboard */,
 				95F88E01234682470009EA2E /* Assets.xcassets */,
 				95F88E03234682470009EA2E /* LaunchScreen.storyboard */,
@@ -99,6 +105,11 @@
 				TargetAttributes = {
 					95F88DF6234682460009EA2E = {
 						CreatedOnToolsVersion = 10.3;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -139,7 +150,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				95F88DFD234682460009EA2E /* ViewController.swift in Sources */,
+				9558A60B2346CC98009FA08B /* AddCommentsViewController.swift in Sources */,
 				95F88DFB234682460009EA2E /* AppDelegate.swift in Sources */,
+				9558A6092346CA81009FA08B /* SelectGenreViewController.swift in Sources */,
 				95F88E0D2346834C0009EA2E /* RecordWhistleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,6 +300,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Project33/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -304,6 +318,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Project33/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
