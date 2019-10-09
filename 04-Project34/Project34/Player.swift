@@ -13,9 +13,9 @@ class Player: NSObject, GKGameModelPlayer {
     var chip: ChipColor
     var color: UIColor
     var name: String
-    var playerId: Int
+    var playerId: Int // GKGameModelPlayer
 
-    static var allPlayers = [Player(chip: .red), Player(chip: .black)]
+    static var allPlayers = [Player(chip: .red), Player(chip: .yellow)]
 
     var opponent: Player {
         if chip == .red {
@@ -31,12 +31,12 @@ class Player: NSObject, GKGameModelPlayer {
         self.playerId = chip.rawValue
 
         if chip == .red {
-            color = .red
+            color = UIColor(red: 0.8, green: 0.1, blue: 0.1, alpha: 1)
             name = "Red"
         }
         else {
-            color = .black
-            name = "Black"
+            color = UIColor(red: 0.8, green: 0.8, blue: 0.1, alpha: 1)
+            name = "Yellow"
         }
 
         super.init()
