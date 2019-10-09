@@ -31,7 +31,7 @@ class Player: NSObject, GKGameModelPlayer {
         self.playerId = chip.rawValue
 
         if chip == .red {
-            color = UIColor(red: 0.8, green: 0.1, blue: 0.1, alpha: 1)
+            color = UIColor(red: 0.9, green: 0.2, blue: 0.2, alpha: 1)
             name = "Red"
         }
         else {

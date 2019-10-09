@@ -26,11 +26,11 @@ class ViewController: UIViewController {
         }
 
         strategist = GKMinmaxStrategist()
-        strategist.maxLookAheadDepth = 7
+        strategist.maxLookAheadDepth = 3
         // nil: return the best move
         strategist.randomSource = nil
         // or: random within the best moves
-        // strategist.randomSource = GKARC4RandomSource()
+        //strategist.randomSource = GKARC4RandomSource()
 
         resetBoard()
     }

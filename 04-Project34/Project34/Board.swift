@@ -84,6 +84,57 @@ class Board: NSObject {
 
         return true
     }
+
+    // challenge 1: detect chains of 4 with 1 open position
+    func squaresMatchOpenChain(initialChip: ChipColor, row: Int, col: Int, moveX: Int, moveY: Int) -> Bool {
+        // no need to go further for cases that end up outside the board
+        if row + (moveY * 3) < 0 { return false }
+        if row + (moveY * 3) >= Board.height { return false }
+        if col + (moveX * 3) < 0 { return false }
+        if col + (moveX * 3) >= Board.width { return false }
+
+        var countNone = 0
+
+        // check every square
+        for i in 0 ..< 4 {
+            let currentChip = chip(inColumn: col + (moveX * i), row: row + (moveY * i))
+            if currentChip == .none { countNone += 1 }
+            if countNone > 1 { return false }
+            if currentChip != .none && currentChip != initialChip { return false }
+        }
+
+        print("\(initialChip) match!")
+        return true
+    }
+
+    // challenge 1: count number of chains of 4 with an open position
+    func numberOfOpenChains(for chip: ChipColor, chainLength: Int = 4) -> Int {
+        var openChains = 0
+
+        for row in 0 ..< Board.height {
+            for col in 0 ..< Board.width {
+                // horizontal
+                if squaresMatchOpenChain(initialChip: chip, row: row, col: col, moveX: 1, moveY: 0) {
+                    openChains += 1
+                }
+                // vertical
+                if squaresMatchOpenChain(initialChip: chip, row: row, col: col, moveX: 0, moveY: 1) {
+                    openChains += 1
+                }
+                // diagonal 1
+                if squaresMatchOpenChain(initialChip: chip, row: row, col: col, moveX: 1, moveY: 1) {
+                    openChains += 1
+                }
+                // diagonal 2
+                if squaresMatchOpenChain(initialChip: chip, row: row, col: col, moveX: 1, moveY: -1) {
+                    openChains += 1
+                }
+            }
+        }
+
+        return openChains
+    }
+
 }
 
 extension Board: GKGameModel {
@@ -168,7 +219,20 @@ extension Board: GKGameModel {
             return -1000
         }
 
-        return 0
+        // challenge 1: study chains of 4 with an open position
+        let playerChip = (player as! Player).chip
+        let playerOpenChains = numberOfOpenChains(for: playerChip)
+
+        let oponentChip = (player as! Player).opponent.chip
+        let oponentOpenChains = numberOfOpenChains(for: oponentChip)
+
+        let advantage = playerOpenChains - oponentOpenChains
+        let score = advantage * 100
+
+        if score != 0 {
+        print(score)
+        }
+        return score
     }
 
     var players: [GKGameModelPlayer]? {
