@@ -13,6 +13,7 @@
 		95052626234BB2BE000746CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95052625234BB2BE000746CA /* Assets.xcassets */; };
 		95052629234BB2BE000746CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95052627234BB2BE000746CA /* LaunchScreen.storyboard */; };
 		95052631234BB7EB000746CA /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95052630234BB7EB000746CA /* Board.swift */; };
+		9553B06F234F88D400B93946 /* NewGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9553B06E234F88D400B93946 /* NewGameViewController.swift */; };
 		95698CB2234EDA4A00ABBEDF /* UIColor+Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95698CB1234EDA4A00ABBEDF /* UIColor+Modifier.swift */; };
 		95698CB4234EDB5800ABBEDF /* ChipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95698CB3234EDB5800ABBEDF /* ChipView.swift */; };
 		95F25024234E189C000B2E68 /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F25023234E189C000B2E68 /* Move.swift */; };
@@ -28,6 +29,7 @@
 		95052628234BB2BE000746CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9505262A234BB2BE000746CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95052630234BB7EB000746CA /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		9553B06E234F88D400B93946 /* NewGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGameViewController.swift; sourceTree = "<group>"; };
 		95698CB1234EDA4A00ABBEDF /* UIColor+Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Modifier.swift"; sourceTree = "<group>"; };
 		95698CB3234EDB5800ABBEDF /* ChipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipView.swift; sourceTree = "<group>"; };
 		95F25023234E189C000B2E68 /* Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				95F25023234E189C000B2E68 /* Move.swift */,
 				95698CB3234EDB5800ABBEDF /* ChipView.swift */,
 				95698CB1234EDA4A00ABBEDF /* UIColor+Modifier.swift */,
+				9553B06E234F88D400B93946 /* NewGameViewController.swift */,
 				95052622234BB2BD000746CA /* Main.storyboard */,
 				95052625234BB2BE000746CA /* Assets.xcassets */,
 				95052627234BB2BE000746CA /* LaunchScreen.storyboard */,
@@ -151,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95F25024234E189C000B2E68 /* Move.swift in Sources */,
+				9553B06F234F88D400B93946 /* NewGameViewController.swift in Sources */,
 				95F4741A234C2DD300E1D01F /* Player.swift in Sources */,
 				95052621234BB2BD000746CA /* ViewController.swift in Sources */,
 				9505261F234BB2BD000746CA /* AppDelegate.swift in Sources */,

@@ -9,7 +9,19 @@
 import GameplayKit
 import UIKit
 
-class ViewController: UIViewController {
+// challenge 2
+enum Difficulty: Int {
+    case easy = 1
+    case medium = 3
+    case hard = 5
+}
+
+// challenge 2
+protocol PlayerSelectionDelegate: class {
+    func setPlayers(player1Type: PlayerType, player2Type: PlayerType)
+}
+
+class ViewController: UIViewController, PlayerSelectionDelegate {
 
     @IBOutlet var columnButtons: [UIButton]!
 
@@ -18,6 +30,9 @@ class ViewController: UIViewController {
 
     var strategist: GKMinmaxStrategist!
 
+    // challenge 2
+    var difficulty = Difficulty.medium
+
     override func viewDidLoad() {
         super.viewDidLoad()
         for _ in 0 ..< Board.width {
@@ -25,7 +40,8 @@ class ViewController: UIViewController {
         }
 
         strategist = GKMinmaxStrategist()
-        strategist.maxLookAheadDepth = 4
+        // challenge 2
+        //strategist.maxLookAheadDepth = difficulty.rawValue
         // nil: return the best move
         strategist.randomSource = nil
         // or: random within the best moves
@@ -33,7 +49,10 @@ class ViewController: UIViewController {
 
         resetBoard()
 
-        // bonus: change colors
+        // challenge 2
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "New game", style: .plain, target: self, action: #selector(newGameTapped))
+
+        // bonus: styling
         let baseColor = UIColor.systemBlue
         view.backgroundColor = baseColor.darkerColor()
         for button in columnButtons {
@@ -42,6 +61,23 @@ class ViewController: UIViewController {
         // async to let the view draw and scale first
         DispatchQueue.main.async { [weak self] in
             self?.drawBackground(color: baseColor.lighterColor())
+        }
+    }
+
+    // challenge 2
+    @objc func newGameTapped() {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "NewGame") as? NewGameViewController {
+            vc.playerSelectionDelegate = self
+            if let player1 = board.players?[0] as? Player {
+                vc.currentPlayer1 = player1.playerType
+            }
+            if let player2 = board.players?[1] as? Player {
+                vc.currentPlayer2 = player2.playerType
+            }
+            vc.modalPresentationStyle = .popover
+            vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+
+            self.present(vc, animated: true)
         }
     }
 
@@ -103,8 +139,14 @@ class ViewController: UIViewController {
             guard let column = self.columnForAIMove() else { return }
             let delta = CFAbsoluteTimeGetCurrent() - strategistTime
 
-            // let at least 1 second elapse before playing
-            let aiTimeCeiling = 1.0
+            // let a moment elapse before playing
+            let aiTimeCeiling: Double
+            if self.board.currentPlayer.opponent.playerType == .human {
+                aiTimeCeiling = 1.0
+            }
+            else {
+                aiTimeCeiling = 0.5
+            }
             let delay = aiTimeCeiling - delta
 
             DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
@@ -172,7 +214,17 @@ class ViewController: UIViewController {
     func updateUI() {
         title = "\(board.currentPlayer.name)'s turn"
 
-        if board.currentPlayer.chip == .yellow {
+        switch board.currentPlayer.playerType {
+        case .human:
+            break
+        case .easyAI:
+            strategist.maxLookAheadDepth = Difficulty.easy.rawValue
+            startAIMove()
+        case .mediumAI:
+            strategist.maxLookAheadDepth = Difficulty.medium.rawValue
+            startAIMove()
+        case .hardAI:
+            strategist.maxLookAheadDepth = Difficulty.hard.rawValue
             startAIMove()
         }
     }
@@ -192,8 +244,8 @@ class ViewController: UIViewController {
             let alertAction = UIAlertAction(title: "Play again", style: .default) { [unowned self] (action) in
                 self.resetBoard()
             }
-
             alert.addAction(alertAction)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             present(alert, animated: true)
 
             return
@@ -211,6 +263,18 @@ class ViewController: UIViewController {
             addChip(inColumn: column, row: row, color: board.currentPlayer.color)
             continueGame()
         }
+    }
+
+    // challenge 2
+    func setPlayers(player1Type: PlayerType, player2Type: PlayerType) {
+        if let player1 = board.players?[0] as? Player {
+            player1.playerType = player1Type
+        }
+        if let player2 = board.players?[1] as? Player {
+            player2.playerType = player2Type
+        }
+
+        resetBoard()
     }
 }
 
