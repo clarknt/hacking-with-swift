@@ -103,7 +103,6 @@ class Board: NSObject {
             if currentChip != .none && currentChip != initialChip { return false }
         }
 
-        print("\(initialChip) match!")
         return true
     }
 
@@ -229,9 +228,6 @@ extension Board: GKGameModel {
         let advantage = playerOpenChains - oponentOpenChains
         let score = advantage * 100
 
-        if score != 0 {
-        print(score)
-        }
         return score
     }
 
