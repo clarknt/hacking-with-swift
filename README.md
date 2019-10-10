@@ -11,8 +11,8 @@ First 30 projects are available in the separate repository [100 days of Swift](h
 
 Type               | Number   | Completion
 :---               |  :---:   |   :---:
-Projects           | 32 / 39  | 82%
-Challenges         | 95 / 116 | 82%
+Projects           | 33 / 39  | 85%
+Challenges         | 98 / 116 | 84%
 
 ## Preview
 
