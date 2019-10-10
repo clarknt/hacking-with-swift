@@ -20,7 +20,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         for _ in 0 ..< Board.width {
             placedChips.append([UIView]())
         }
@@ -33,6 +32,17 @@ class ViewController: UIViewController {
         //strategist.randomSource = GKARC4RandomSource()
 
         resetBoard()
+
+        // bonus: change colors
+        let baseColor = UIColor.systemBlue
+        view.backgroundColor = baseColor.darkerColor()
+        for button in columnButtons {
+            button.backgroundColor = baseColor
+        }
+        // async to let the view draw and scale first
+        DispatchQueue.main.async { [weak self] in
+            self?.drawBackground(color: baseColor.lighterColor())
+        }
     }
 
     func resetBoard() {
@@ -93,17 +103,35 @@ class ViewController: UIViewController {
         }
     }
 
+    // bonus: background circles
+    func drawBackground(color: UIColor) {
+        for col in 0 ..< Board.width {
+            for row in 0 ..< Board.height {
+                let button = columnButtons[col]
+                let size = getSize(forButton: button)
+                let rect = CGRect(x: 0, y: 0, width: size, height: size)
+
+                let newChip = UIView()
+                newChip.frame = rect
+                newChip.isUserInteractionEnabled = false
+                newChip.backgroundColor = color
+                newChip.layer.cornerRadius = size / 2
+                newChip.center = positionForChip(inColumn: col, row: row)
+                view.addSubview(newChip)
+            }
+        }
+    }
+
     func addChip(inColumn column: Int, row: Int, color: UIColor) {
         let button = columnButtons[column]
         let size = getSize(forButton: button)
         let rect = CGRect(x: 0, y: 0, width: size, height: size)
 
         if placedChips[column].count < row + 1 {
-            let newChip = UIView()
+            // challenge 3
+            let newChip = ChipView(color: color)
             newChip.frame = rect
             newChip.isUserInteractionEnabled = false
-            newChip.backgroundColor = color
-            newChip.layer.cornerRadius = size / 2
             newChip.center = positionForChip(inColumn: column, row: row)
             newChip.transform = CGAffineTransform(translationX: 0, y: -800)
             view.addSubview(newChip)
