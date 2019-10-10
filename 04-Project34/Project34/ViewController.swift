@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         }
 
         strategist = GKMinmaxStrategist()
-        strategist.maxLookAheadDepth = 3
+        strategist.maxLookAheadDepth = 4
         // nil: return the best move
         strategist.randomSource = nil
         // or: random within the best moves
@@ -61,6 +61,16 @@ class ViewController: UIViewController {
     }
 
     func columnForAIMove() -> Int? {
+        var chipsNumber = 0
+        for col in placedChips {
+            chipsNumber += col.count
+        }
+
+        // make first move random to avoid AI playing always the same moves
+        if chipsNumber <= 2 {
+            return Int.random(in: 0 ..< Board.width)
+        }
+
         if let aiMove = strategist.bestMove(for: board.currentPlayer) as? Move {
             return aiMove.column
         }

@@ -226,7 +226,7 @@ extension Board: GKGameModel {
         let oponentOpenChains = numberOfOpenChains(for: oponentChip)
 
         let advantage = playerOpenChains - oponentOpenChains
-        let score = advantage * 100
+        let score = advantage * 10
 
         return score
     }
