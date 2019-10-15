@@ -1,4 +1,4 @@
-# Project 32
+# Project 32 - Four in a Row
 
 https://www.hackingwithswift.com/read/34/
 

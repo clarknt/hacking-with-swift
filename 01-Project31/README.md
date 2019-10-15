@@ -1,4 +1,4 @@
-# Project 31
+# Project 31 - Multibrowser
 
 https://www.hackingwithswift.com/read/31/
 

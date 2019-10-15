@@ -1,4 +1,4 @@
-# Project 32
+# Project 32 - SwiftSearcher
 
 https://www.hackingwithswift.com/read/32/
 
