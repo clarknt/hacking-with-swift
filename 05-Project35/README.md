@@ -8,4 +8,4 @@ There are no challenges for this project.
 
 ## Topics
 
-Random numbers, GameplayKit, GKRandomSource, GKARC4RandomSource, GKRandomDistribution, GKShuffledDistribution, GKGaussianDistribution
+Traditional and GameplayKit random numbers generation
