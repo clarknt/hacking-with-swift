@@ -37,6 +37,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // challenge 1
     let rockTypes = ["rock", "plain_rock", "snow_rock", "ice_rock"]
 
+    // challenge 2
+    static let defaultRockDistance: CGFloat = 70
+    // width of the gap between rocks - the smaller the harder
+    var rockDistance = GameScene.defaultRockDistance
+
     var score = 0 {
         didSet {
             scoreLabel.text = "SCORE: \(score)"
@@ -218,11 +223,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let xPosition = frame.width + topRock.frame.width
 
         let max = CGFloat(frame.height / 3)
-        // position of the gap betwwn the rocks
+        // position of the gap between the rocks
         let yPosition = CGFloat.random(in: -50...max)
 
-        // width of the gap between rocks - the smaller the harder
-        let rockDistance: CGFloat = 70
+        // challenge 2
+        rockDistance *= 0.99
 
         // position the rocks and animate from right to left
         topRock.position = CGPoint(x: xPosition, y: yPosition + topRock.size.height + rockDistance)
@@ -240,6 +245,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
 
     func startRocks() {
+        // challenge 2
+        rockDistance = GameScene.defaultRockDistance
+
         let create = SKAction.run { [unowned self] in
             self.createRocks()
         }
