@@ -29,7 +29,7 @@ SpriteKit, collisions, parallax scrolling, SKAudioNode
 
 ## Challenges
 
-*Challenges not included at the moment.*
+*Challenges 3 and 4 are not included at the moment.*
 
 From [Hacking with Swift](https://www.hackingwithswift.com/read/36/8/wrap-up):
 >1. If you want to take this project further, you could start by having different kinds of obstacles – the repeating rocks do get a bit tiresome after a while!
