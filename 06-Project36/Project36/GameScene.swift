@@ -34,6 +34,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // this constant is not used but will force preloading and caching the texture
     let explosion = SKEmitterNode(fileNamed: "PlayerExplosion")
 
+    // challenge 1
+    let rockTypes = ["rock", "plain_rock", "snow_rock", "ice_rock"]
+
     var score = 0 {
         didSet {
             scoreLabel.text = "SCORE: \(score)"
@@ -178,7 +181,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
 
     func createRocks() {
-        let rockTexture = SKTexture(imageNamed: "rock")
+        // challenge 1
+        let rockTexture = SKTexture(imageNamed: rockTypes.randomElement()!)
 
         let topRock = SKSpriteNode(texture: rockTexture)
         // allow collision detection
