@@ -32,3 +32,9 @@ From [Hacking with Swift](https://www.hackingwithswift.com/read/36/8/wrap-up):
 >2. You could also make the game difficulty ramp up ever so slowly, either by decreasing the gap between the rocks or by increasing the world gravity.
 >3. To make the game much more challenging, how about introducing a secondary scoring mechanism: perhaps the player could get extra points if they fly through hoops in between the rocks?
 >4. If you fancy a bigger challenge, how about making it a universal game, i.e. support both iPad and iPhone.
+
+## Screenshots
+
+![screenshot1](screenshots/screen01.png)
+![screenshot2](screenshots/screen02.png)
+![screenshot3](screenshots/screen03.png)

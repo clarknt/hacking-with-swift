@@ -115,7 +115,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         // pixel perfect physics
         player.physicsBody = SKPhysicsBody(texture: playerTexture, size: playerTexture.size())
-        print(player.physicsBody!.collisionBitMask)
         // get notified of any collision
         player.physicsBody!.contactTestBitMask = player.physicsBody!.collisionBitMask
         // for the intro, make the plane NOT respond to physics
