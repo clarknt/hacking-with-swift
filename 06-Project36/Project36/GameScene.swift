@@ -101,21 +101,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func createPlayer() {
         let playerTexture = SKTexture(imageNamed: "player-1")
 
-
         player = SKSpriteNode(texture: playerTexture)
         player.zPosition = 10
-        player.position = CGPoint(x: frame.width / 5, y: frame.height * 0.75)
+
+        // challenge 4
+        let playerXPosition: CGFloat = 130
+
+        player.position = CGPoint(x: playerXPosition, y: frame.height * 0.75)
 
         addChild(player)
 
         // pixel perfect physics
         player.physicsBody = SKPhysicsBody(texture: playerTexture, size: playerTexture.size())
+        print(player.physicsBody!.collisionBitMask)
         // get notified of any collision
         player.physicsBody!.contactTestBitMask = player.physicsBody!.collisionBitMask
         // for the intro, make the plane NOT respond to physics
         player.physicsBody?.isDynamic = false
         // disable plane bounce
-         player.physicsBody?.collisionBitMask = 0
+        player.physicsBody?.collisionBitMask = 0
 
         let frame2 = SKTexture(imageNamed: "player-2")
         let frame3 = SKTexture(imageNamed: "player-3")
@@ -145,7 +149,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func createBackground() {
         let backgroundTexture = SKTexture(imageNamed: "background")
 
-        for i in 0 ... 1 {
+        for i in 0...1 {
             let background = SKSpriteNode(texture: backgroundTexture)
             background.zPosition = -30
             background.anchorPoint = CGPoint.zero
@@ -164,10 +168,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func createGround() {
         let groundTexture = SKTexture(imageNamed: "ground")
 
-        for i in 0 ... 1 {
+        for i in 0...1 {
             let ground = SKSpriteNode(texture: groundTexture)
             ground.zPosition = -10
-            ground.position = CGPoint(x: (groundTexture.size().width / 2.0 + (groundTexture.size().width * CGFloat(i))), y: groundTexture.size().height / 2)
+            // - CGFloat(1 * i) to overlap by 1 pixel, avoiding some flicker
+            ground.position = CGPoint(x: (groundTexture.size().width / 2.0 + (groundTexture.size().width * CGFloat(i))) - CGFloat(1 * i), y: groundTexture.size().height / 2)
 
             // pixel perfect collision detection
             ground.physicsBody = SKPhysicsBody(texture: ground.texture!, size: ground.texture!.size())
@@ -236,8 +241,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         let endPosition = frame.width + (topRock.frame.width * 2)
 
-        // 6.2 to try to approximate ground speed
-        let moveAction = SKAction.moveBy(x: -endPosition, y: 0, duration: 6.2)
+        // challenge 3
+        // set to 7.3 instead of 6.2 to accomodate different rocks size (7.2 is
+        // the same speed as ground but 7.3 gives a very slight parallax effect
+        // which works well because the rocks are behind the ground)
+        let moveAction = SKAction.moveBy(x: -endPosition, y: 0, duration: 7.3)
         let moveSequence = SKAction.sequence([moveAction, SKAction.removeFromParent()])
         topRock.run(moveSequence)
         bottomRock.run(moveSequence)
