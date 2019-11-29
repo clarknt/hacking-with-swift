@@ -78,6 +78,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let activatePlayer = SKAction.run { [unowned self] in
                 self.player.physicsBody?.isDynamic = true
                 self.startRocks()
+                // challenge 3
+                self.startGold()
             }
 
             let sequence = SKAction.sequence([fadeOut, wait, activatePlayer, remove])
@@ -191,6 +193,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
 
     func createRocks() {
+        // sometiimes
+        guard rockPhysics.copy() as? SKPhysicsBody != nil else { return }
+
         // challenge 1
         let rockTexture = SKTexture(imageNamed: rockTypes.randomElement()!)
 
@@ -267,6 +272,53 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         run(repeatForever)
     }
 
+    // challenge 3
+    func createGold() {
+        let gold = SKSpriteNode(imageNamed: "gold")
+        // allow collision detection
+        gold.physicsBody = SKPhysicsBody(circleOfRadius: gold.size.width / 2)
+        gold.physicsBody?.isDynamic = false
+
+        gold.name = "gold"
+
+        addChild(gold)
+
+        // start after the first rock
+        let xMiddle = frame.width * 2
+        let xLeftRange = xMiddle //+ (frame.width / 16)
+        let xRightRange = xMiddle + (frame.width / 2.5)
+        let xPosition = CGFloat.random(in: xLeftRange...xRightRange)
+
+        let yMiddle = frame.height / 2
+        let yTopRange = yMiddle + (frame.height / 3)
+        let yBottomRange = yMiddle - (frame.height / 3)
+        let yPosition = CGFloat.random(in: yBottomRange...yTopRange)
+
+        // position and animate from right to left
+        gold.position = CGPoint(x: xPosition, y: yPosition)
+
+        // go away enough
+        let endPosition = frame.width * 3
+
+        // same settings as the rocks
+        let moveAction = SKAction.moveBy(x: -endPosition, y: 0, duration: 9.5)
+        let moveSequence = SKAction.sequence([moveAction, SKAction.removeFromParent()])
+        gold.run(moveSequence)
+    }
+
+    // challenge 3
+    func startGold() {
+        let create = SKAction.run { [unowned self] in
+            self.createGold()
+        }
+
+        let wait = SKAction.wait(forDuration: 3)
+        let sequence = SKAction.sequence([create, wait])
+        let repeatForever = SKAction.repeatForever(sequence)
+
+        run(repeatForever)
+    }
+
     func createScore() {
         scoreLabel = SKLabelNode(fontNamed: "Optima-ExtraBlack")
         scoreLabel.fontSize = 24
@@ -289,8 +341,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
 
     func didBegin(_ contact: SKPhysicsContact) {
+        // challenge 3
+        var rectangleCollision = false
+        var coinCollision = false
+
         // collision with the score detection rectangle?
         if contact.bodyA.node?.name == "scoreDetect" || contact.bodyB.node?.name == "scoreDetect" {
+            rectangleCollision = true
+        }
+
+        // collision with a coin?
+        if contact.bodyA.node?.name == "gold" || contact.bodyB.node?.name == "gold" {
+            coinCollision = true
+        }
+
+        if rectangleCollision || coinCollision {
             if contact.bodyA.node == player {
                 contact.bodyB.node?.removeFromParent()
             } else {

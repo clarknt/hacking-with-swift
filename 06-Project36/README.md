@@ -2,20 +2,14 @@
 
 https://www.hackingwithswift.com/read/36/
 
+## Credits
+
 All assets are licensed under CC0.
 
-Background, ground, player, rock graphics by Kenney
-	http://opengameart.org/content/tappy-plane
-	http://kenney.itch.io/kenney-donation
-
-Music by ShwiggityShwag – "8 Bit The Hero"
-	http://opengameart.org/content/8-bit-the-hero
-
-Coin sound by Luke.RUSTLD - "10 8Bit Coin Sounds"
-	http://opengameart.org/content/10-8bit-coin-sounds
-
-Explosion sound by Luke.RUSTLD - "Bomb Explosion 8bit"
-	http://opengameart.org/content/bombexplosion8bit
+- Background, ground, player, rock and coin graphics by [Kenney](http://opengameart.org/content/tappy-plane)
+- Music by [ShwiggityShwag – "8 Bit The Hero"](http://opengameart.org/content/8-bit-the-hero)
+- Coin sound by [Luke.RUSTLD - "10 8Bit Coin Sounds"](http://opengameart.org/content/10-8bit-coin-sounds)
+- Explosion sound by [Luke.RUSTLD - "Bomb Explosion 8bit"](http://opengameart.org/content/bombexplosion8bit)
 
 ## Note
 
@@ -23,17 +17,15 @@ This project works with
 - iOS <= 12.4
 - iOS >= 13.2.
 
-Meaning it does not work with iOS 13.0 and 13.1, where there is a change/bug in SKPhysicsBody that causes problems with collision detection.
+Meaning it does not work with iOS 13.0 and 13.1, due to a change/bug in SKPhysicsBody that causes problems with collision detection.
 
-See https://forums.developer.apple.com/thread/123130 and https://forums.developer.apple.com/thread/123998 for more information.
+See [thread 1](https://forums.developer.apple.com/thread/123130) and [thread 2](https://forums.developer.apple.com/thread/123998) for more information.
 
 ## Topics
 
 SpriteKit, collisions, parallax scrolling, SKAudioNode
 
 ## Challenges
-
-*Challenges 3 and 4 are not included at the moment.*
 
 From [Hacking with Swift](https://www.hackingwithswift.com/read/36/8/wrap-up):
 >1. If you want to take this project further, you could start by having different kinds of obstacles – the repeating rocks do get a bit tiresome after a while!
