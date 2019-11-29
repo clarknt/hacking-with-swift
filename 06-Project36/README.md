@@ -17,11 +17,15 @@ Coin sound by Luke.RUSTLD - "10 8Bit Coin Sounds"
 Explosion sound by Luke.RUSTLD - "Bomb Explosion 8bit"
 	http://opengameart.org/content/bombexplosion8bit
 
-
-
 ## Note
 
-**This project works with iOS 12.x only. In iOS 13, there is to a change/bug in SKPhysicsBody that causes problems with collision detection. See https://forums.developer.apple.com/thread/123130 for more information.**
+This project works with
+- iOS <= 12.4
+- iOS >= 13.2.
+
+Meaning it does not work with iOS 13.0 and 13.1, where there is a change/bug in SKPhysicsBody that causes problems with collision detection.
+
+See https://forums.developer.apple.com/thread/123130 and https://forums.developer.apple.com/thread/123998 for more information.
 
 ## Topics
 
