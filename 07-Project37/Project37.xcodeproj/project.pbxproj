@@ -22,7 +22,6 @@
 		953AE2752421798B00963A98 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953AE2742421798B00963A98 /* ExtensionDelegate.swift */; };
 		953AE2772421798C00963A98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 953AE2762421798C00963A98 /* Assets.xcassets */; };
 		953AE28924217B3100963A98 /* PhantomFromSpace.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 953AE28724217B3100963A98 /* PhantomFromSpace.mp3 */; };
-		953AE28A24217B3100963A98 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 953AE28824217B3100963A98 /* README.txt */; };
 		953AE28C24217D5700963A98 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953AE28B24217D5600963A98 /* CardViewController.swift */; };
 		953AE2912421895A00963A98 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953AE2902421895A00963A98 /* GradientView.swift */; };
 /* End PBXBuildFile section */
@@ -89,7 +88,6 @@
 		953AE2762421798C00963A98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		953AE2782421798C00963A98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		953AE28724217B3100963A98 /* PhantomFromSpace.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PhantomFromSpace.mp3; sourceTree = "<group>"; };
-		953AE28824217B3100963A98 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		953AE28B24217D5600963A98 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		953AE2902421895A00963A98 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -171,7 +169,6 @@
 			children = (
 				9537899E2422BD68008D3FB1 /* 267412__shandonsound__coin-drop-1.aiff */,
 				953AE28724217B3100963A98 /* PhantomFromSpace.mp3 */,
-				953AE28824217B3100963A98 /* README.txt */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -311,7 +308,6 @@
 				953AE2572421798A00963A98 /* Assets.xcassets in Resources */,
 				9537899F2422BD68008D3FB1 /* 267412__shandonsound__coin-drop-1.aiff in Resources */,
 				953AE2552421798A00963A98 /* Main.storyboard in Resources */,
-				953AE28A24217B3100963A98 /* README.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

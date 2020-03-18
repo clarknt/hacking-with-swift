@@ -25,3 +25,7 @@ Projects / Topics                                                               
 [Project 34](04-Project34) - *Four in a Row* <br/>(with challenges)                                         <br/><sub> GameplayKit, AI, heuristic, UIStackView </sub> | ![screen1](04-Project34/screenshots/small/screen01.png) ![screen2](04-Project34/screenshots/small/screen02.png) |
 [Project 35](05-Project35) - *Generating Random Numbers*                                         <br/><sub> Traditional and GameplayKit random numbers generation </sub> | No screenshot
 [Project 36](06-Project36) - *Crashy Plane* <br/>(with challenges)                                        <br/><sub> SpriteKit, collisions, parallax scrolling, SKAudioNode </sub> | ![screen1](06-Project36/screenshots/small/screen01.png) ![screen2](06-Project36/screenshots/small/screen02.png) ![screen3](06-Project36/screenshots/small/screen03.png) 
+[Project 37](07-Project37) - *Psychic Tester* <br/>(with challenges)                                        <br/><sub> WatchOS, WCSession, CAGradientLayer, CAEmitterLayer, card flip effects, 3D Touch </sub> | ![screen1](07-Project37/screenshots/small/screen01.png) ![screen2](07-Project37/screenshots/small/screen02.png) ![screen3](07-Project37/screenshots/small/screen03.png) ![screen4](07-Project37/screenshots/small/screen04.png) 
+
+
+
