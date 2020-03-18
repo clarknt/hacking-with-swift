@@ -14,11 +14,20 @@
                         <label alignment="center" text="Please read the instructions on your phone before continuing." textAlignment="center" numberOfLines="0" id="Kgr-he-bOK"/>
                         <button width="1" alignment="center" verticalAlignment="bottom" title="I'm Ready" id="X7v-eJ-g1T">
                             <connections>
-                                <action selector="hideWelconeText" destination="AgC-eL-Hgc" id="qwi-gT-N8o"/>
+                                <action selector="hideWelcomeText" destination="AgC-eL-Hgc" id="qwi-gT-N8o"/>
+                            </connections>
+                        </button>
+                        <button width="1" height="150" alignment="left" hidden="YES" title="All Star Mode" id="uHb-0s-Xiz">
+                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="font" type="system" pointSize="15"/>
+                            <connections>
+                                <action selector="allStarTapped" destination="AgC-eL-Hgc" id="f6Y-3h-i6I"/>
                             </connections>
                         </button>
                     </items>
                     <connections>
+                        <outlet property="allStarButton" destination="uHb-0s-Xiz" id="Oek-dY-8DC"/>
                         <outlet property="hideButton" destination="X7v-eJ-g1T" id="ZXH-4a-rQo"/>
                         <outlet property="welcomeText" destination="Kgr-he-bOK" id="VNA-Po-2SB"/>
                     </connections>

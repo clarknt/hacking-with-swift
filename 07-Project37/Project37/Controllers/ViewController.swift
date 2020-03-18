@@ -19,10 +19,13 @@ class ViewController: UIViewController {
 
     var music: AVAudioPlayer!
 
+    var lastMessage: CFAbsoluteTime = 0
+
     // challenge 1
     var soundPlayer: AVAudioPlayer!
 
-    var lastMessage: CFAbsoluteTime = 0
+    // challange 2
+    var allStarMode = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -123,6 +126,12 @@ class ViewController: UIViewController {
 
         for card in allCards {
             if card == tapped {
+                // challenge 2
+                if allStarMode {
+                    card.front.image = UIImage(named: "cardStar")
+                    card.isCorrect = true
+                }
+
                 card.wasTapped()
                 card.perform(#selector(card.wasntTapped), with: nil, afterDelay: 1)
             } else {
@@ -235,6 +244,14 @@ extension ViewController: WCSessionDelegate {
                 soundPlayer.numberOfLoops = 0
                 soundPlayer.play()
             }
+        }
+    }
+
+    // challenge 2
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        print("Message received")
+        if let asm = message["AllStarMode"] as? Bool {
+            allStarMode = asm
         }
     }
 }
