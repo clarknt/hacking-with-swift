@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="landscape" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Project37" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.90000000000000002" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34X-4n-A07" customClass="GradientView" customModule="Project37" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="topColor">
+                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eoa-3Y-h6V">
+                                <rect key="frame" x="208" y="47" width="480" height="320"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="480" id="OJq-Bu-P5g"/>
+                                    <constraint firstAttribute="height" constant="320" id="h8c-sS-fV8"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Eoa-3Y-h6V" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KPd-Xv-AeK"/>
+                            <constraint firstItem="34X-4n-A07" firstAttribute="centerY" secondItem="Eoa-3Y-h6V" secondAttribute="centerY" id="LNm-L5-BiK"/>
+                            <constraint firstItem="Eoa-3Y-h6V" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Wbo-yn-BNg"/>
+                            <constraint firstItem="34X-4n-A07" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="YAD-1w-Okj"/>
+                            <constraint firstItem="34X-4n-A07" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="csZ-fB-wTB"/>
+                            <constraint firstItem="34X-4n-A07" firstAttribute="centerX" secondItem="Eoa-3Y-h6V" secondAttribute="centerX" id="efT-l5-BSW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Uee-0j-aNJ"/>
+                    </view>
+                    <connections>
+                        <outlet property="cardContainer" destination="Eoa-3Y-h6V" id="WC0-gw-Zdu"/>
+                        <outlet property="gradientView" destination="34X-4n-A07" id="7h3-F9-fLP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-108.48214285714285" y="-36.231884057971016"/>
+        </scene>
+    </scenes>
+</document>
