@@ -10,7 +10,7 @@ import AVFoundation
 import UIKit
 import WatchConnectivity
 
-class ViewController: UIViewController, WCSessionDelegate {
+class ViewController: UIViewController {
 
     @IBOutlet weak var cardContainer: UIView!
     @IBOutlet weak var gradientView: UIView!
@@ -18,6 +18,9 @@ class ViewController: UIViewController, WCSessionDelegate {
     var allCards = [CardViewController]()
 
     var music: AVAudioPlayer!
+
+    // challenge 1
+    var soundPlayer: AVAudioPlayer!
 
     var lastMessage: CFAbsoluteTime = 0
 
@@ -187,12 +190,6 @@ class ViewController: UIViewController, WCSessionDelegate {
         }
     }
 
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) { }
-
-    func sessionDidBecomeInactive(_ session: WCSession) { }
-
-    func sessionDidDeactivate(_ session: WCSession) { }
-
     func sendWatchMessage() {
         let currentTime = CFAbsoluteTimeGetCurrent()
 
@@ -210,5 +207,34 @@ class ViewController: UIViewController, WCSessionDelegate {
 
         // update our rate limiting property
         lastMessage = CFAbsoluteTimeGetCurrent()
+    }
+}
+
+extension ViewController: WCSessionDelegate {
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+    }
+
+    func sessionDidBecomeInactive(_ session: WCSession) {
+    }
+
+    func sessionDidDeactivate(_ session: WCSession) {
+    }
+
+    // challenge 1 (using sessionReachabilityDidChange instead of the suggested sessionWatchStateDidChange)
+    func sessionReachabilityDidChange(_ session: WCSession) {
+        if session.isReachable == false {
+            playUnreachableSound()
+        }
+    }
+
+    // challenge 1
+    func playUnreachableSound() {
+        if let musicURL = Bundle.main.url(forResource: "267412__shandonsound__coin-drop-1", withExtension: "aiff") {
+            if let audioPlayer = try? AVAudioPlayer(contentsOf: musicURL) {
+                soundPlayer = audioPlayer
+                soundPlayer.numberOfLoops = 0
+                soundPlayer.play()
+            }
+        }
     }
 }

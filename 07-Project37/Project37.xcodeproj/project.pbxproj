@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9537899F2422BD68008D3FB1 /* 267412__shandonsound__coin-drop-1.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 9537899E2422BD68008D3FB1 /* 267412__shandonsound__coin-drop-1.aiff */; };
 		953AE24E2421798A00963A98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953AE24D2421798A00963A98 /* AppDelegate.swift */; };
 		953AE2502421798A00963A98 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953AE24F2421798A00963A98 /* SceneDelegate.swift */; };
 		953AE2522421798A00963A98 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953AE2512421798A00963A98 /* ViewController.swift */; };
@@ -69,6 +70,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9537899E2422BD68008D3FB1 /* 267412__shandonsound__coin-drop-1.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = "267412__shandonsound__coin-drop-1.aiff"; sourceTree = "<group>"; };
 		953AE24A2421798A00963A98 /* Project37.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project37.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		953AE24D2421798A00963A98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		953AE24F2421798A00963A98 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 		953AE28624217B3100963A98 /* Content */ = {
 			isa = PBXGroup;
 			children = (
+				9537899E2422BD68008D3FB1 /* 267412__shandonsound__coin-drop-1.aiff */,
 				953AE28724217B3100963A98 /* PhantomFromSpace.mp3 */,
 				953AE28824217B3100963A98 /* README.txt */,
 			);
@@ -306,6 +309,7 @@
 				953AE25A2421798A00963A98 /* LaunchScreen.storyboard in Resources */,
 				953AE28924217B3100963A98 /* PhantomFromSpace.mp3 in Resources */,
 				953AE2572421798A00963A98 /* Assets.xcassets in Resources */,
+				9537899F2422BD68008D3FB1 /* 267412__shandonsound__coin-drop-1.aiff in Resources */,
 				953AE2552421798A00963A98 /* Main.storyboard in Resources */,
 				953AE28A24217B3100963A98 /* README.txt in Resources */,
 			);
