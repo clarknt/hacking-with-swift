@@ -50,9 +50,7 @@
 		95322971242BEB6600E180FA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				956B941D242AC79B00058AA9 /* DetailViewController.swift */,
 				956B940D242AC49200058AA9 /* Main.storyboard */,
-				956B940B242AC49200058AA9 /* ViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -75,6 +73,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		9532297F242C09C600E180FA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				956B941D242AC79B00058AA9 /* DetailViewController.swift */,
+				956B940B242AC49200058AA9 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		956B93FB242AC49200058AA9 = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +101,7 @@
 		956B9406242AC49200058AA9 /* Project38 */ = {
 			isa = PBXGroup;
 			children = (
+				9532297F242C09C600E180FA /* Controllers */,
 				95322973242BEB9E00E180FA /* Models */,
 				95322972242BEB8900E180FA /* Frameworks */,
 				95322971242BEB6600E180FA /* Views */,
