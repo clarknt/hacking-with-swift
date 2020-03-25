@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		95322976242BEBBE00E180FA /* Project38.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95322974242BEBBE00E180FA /* Project38.xcdatamodeld */; };
 		956B9408242AC49200058AA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956B9407242AC49200058AA9 /* AppDelegate.swift */; };
 		956B940A242AC49200058AA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956B9409242AC49200058AA9 /* SceneDelegate.swift */; };
 		956B940C242AC49200058AA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956B940B242AC49200058AA9 /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		95322975242BEBBE00E180FA /* Project38.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Project38.xcdatamodel; sourceTree = "<group>"; };
 		956B9404242AC49200058AA9 /* Project38.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project38.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		956B9407242AC49200058AA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		956B9409242AC49200058AA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +43,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		95322971242BEB6600E180FA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				956B941D242AC79B00058AA9 /* DetailViewController.swift */,
+				956B940D242AC49200058AA9 /* Main.storyboard */,
+				956B940B242AC49200058AA9 /* ViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		95322972242BEB8900E180FA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				956B941B242AC4FE00058AA9 /* SwiftyJSON.swift */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		95322973242BEB9E00E180FA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				95322974242BEBBE00E180FA /* Project38.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		956B93FB242AC49200058AA9 = {
 			isa = PBXGroup;
 			children = (
@@ -60,15 +88,14 @@
 		956B9406242AC49200058AA9 /* Project38 */ = {
 			isa = PBXGroup;
 			children = (
+				95322973242BEB9E00E180FA /* Models */,
+				95322972242BEB8900E180FA /* Frameworks */,
+				95322971242BEB6600E180FA /* Views */,
 				956B9407242AC49200058AA9 /* AppDelegate.swift */,
 				956B9409242AC49200058AA9 /* SceneDelegate.swift */,
-				956B940B242AC49200058AA9 /* ViewController.swift */,
-				956B940D242AC49200058AA9 /* Main.storyboard */,
 				956B9410242AC49600058AA9 /* Assets.xcassets */,
 				956B9412242AC49600058AA9 /* LaunchScreen.storyboard */,
 				956B9415242AC49600058AA9 /* Info.plist */,
-				956B941B242AC4FE00058AA9 /* SwiftyJSON.swift */,
-				956B941D242AC79B00058AA9 /* DetailViewController.swift */,
 			);
 			path = Project38;
 			sourceTree = "<group>";
@@ -148,6 +175,7 @@
 				956B9408242AC49200058AA9 /* AppDelegate.swift in Sources */,
 				956B941E242AC79B00058AA9 /* DetailViewController.swift in Sources */,
 				956B940A242AC49200058AA9 /* SceneDelegate.swift in Sources */,
+				95322976242BEBBE00E180FA /* Project38.xcdatamodeld in Sources */,
 				956B941C242AC4FE00058AA9 /* SwiftyJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,6 +372,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		95322974242BEBBE00E180FA /* Project38.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				95322975242BEBBE00E180FA /* Project38.xcdatamodel */,
+			);
+			currentVersion = 95322975242BEBBE00E180FA /* Project38.xcdatamodel */;
+			path = Project38.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 956B93FC242AC49200058AA9 /* Project object */;
 }
