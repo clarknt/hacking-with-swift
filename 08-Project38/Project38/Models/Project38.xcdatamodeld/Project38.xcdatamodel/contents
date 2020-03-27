@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E266" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Author" representedClassName="Author" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <relationship name="commits" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Commit" inverseName="author" inverseEntity="Commit"/>
+        <fetchIndex name="byNameIndex">
+            <fetchIndexElement property="name" type="Binary" order="ascending"/>
+        </fetchIndex>
+    </entity>
     <entity name="Commit" representedClassName="Commit" syncable="YES">
         <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="message" attributeType="String"/>
         <attribute name="sha" attributeType="String"/>
         <attribute name="url" attributeType="String"/>
+        <relationship name="author" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Author" inverseName="commits" inverseEntity="Author"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="sha"/>
@@ -12,6 +21,7 @@
         </uniquenessConstraints>
     </entity>
     <elements>
-        <element name="Commit" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="Commit" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="Author" positionX="-63" positionY="9" width="128" height="88"/>
     </elements>
 </model>

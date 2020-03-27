@@ -55,7 +55,7 @@
         <!--Detail View Controller-->
         <scene sceneID="NIf-F3-fyr">
             <objects>
-                <viewController id="Wys-Wj-xYD" customClass="DetailViewController" customModule="Project38" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Detail" id="Wys-Wj-xYD" customClass="DetailViewController" customModule="Project38" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ztf-5j-4mT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
