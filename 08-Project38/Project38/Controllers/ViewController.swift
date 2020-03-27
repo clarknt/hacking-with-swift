@@ -17,6 +17,10 @@ class ViewController: UITableViewController {
 
     var commitPredicate: NSPredicate?
 
+    var fetchedResultsController: NSFetchedResultsController<Commit>!
+
+    let usePagination = true
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -126,6 +130,42 @@ class ViewController: UITableViewController {
     }
 
     func loadSavedData() {
+        if usePagination {
+            loadPaginatedSavedData()
+        }
+        else {
+            loadUnpaginatedSavedData()
+        }
+    }
+
+    // version that loads only 20 results
+    func loadPaginatedSavedData() {
+        if fetchedResultsController == nil {
+            let request = Commit.createFetchRequest()
+            let sort = NSSortDescriptor(key: "author.name", ascending: true)
+            // to sort by date instead of author
+            // let sort = NSSortDescriptor(key: "date", ascending: false)
+            request.sortDescriptors = [sort]
+            request.fetchBatchSize = 20
+
+            fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: container.viewContext, sectionNameKeyPath: "author.name", cacheName: nil)
+            // to sort by date instead of author
+            // fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: container.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+            fetchedResultsController.delegate = self
+        }
+
+        fetchedResultsController.fetchRequest.predicate = commitPredicate
+
+        do {
+            try fetchedResultsController.performFetch()
+            tableView.reloadData()
+        } catch {
+            print("Fetch failed")
+        }
+    }
+
+    // version that loads everything
+    func loadUnpaginatedSavedData() {
         let request = Commit.createFetchRequest()
         let sort = NSSortDescriptor(key: "date", ascending: false)
         request.sortDescriptors = [sort]
@@ -191,31 +231,52 @@ class ViewController: UITableViewController {
 
 extension ViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
+        if usePagination {
+            return fetchedResultsController.sections?.count ?? 0
+        }
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if usePagination {
+            let sectionInfo = fetchedResultsController.sections![section]
+            return sectionInfo.numberOfObjects
+        }
         return commits.count
+    }
+
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return fetchedResultsController.sections![section].name
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Commit", for: indexPath)
 
-        let commit = commits[indexPath.row]
+        let commit: Commit
+        if usePagination {
+            commit = fetchedResultsController.object(at: indexPath)
+        }
+        else {
+            commit = commits[indexPath.row]
+        }
         cell.textLabel!.text = commit.message
         cell.detailTextLabel!.text = "By \(commit.author.name) on \(commit.date.description)"
 
         return cell
     }
 
-
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let commit = commits[indexPath.row]
-            container.viewContext.delete(commit)
-            commits.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-
+            if usePagination {
+                let commit = fetchedResultsController.object(at: indexPath)
+                container.viewContext.delete(commit)
+            }
+            else {
+                let commit = commits[indexPath.row]
+                container.viewContext.delete(commit)
+                commits.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
             saveContext()
         }
     }
@@ -226,8 +287,27 @@ extension ViewController {
 extension ViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
-            vc.detailItem = commits[indexPath.row]
+            if usePagination {
+                vc.detailItem = fetchedResultsController.object(at: indexPath)
+            }
+            else {
+                vc.detailItem = commits[indexPath.row]
+            }
             navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+}
+
+// MARK:- NSFetchedResultsControllerDelegate
+
+extension ViewController: NSFetchedResultsControllerDelegate {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .delete:
+            tableView.deleteRows(at: [indexPath!], with: .automatic)
+
+        default:
+            break
         }
     }
 }
