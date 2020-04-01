@@ -12,6 +12,7 @@
 		9532297E242C04A200E180FA /* Commit+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9532297C242C04A200E180FA /* Commit+CoreDataProperties.swift */; };
 		9537396F242E96D400649E0D /* Author+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9537396D242E96D400649E0D /* Author+CoreDataClass.swift */; };
 		95373970242E96D400649E0D /* Author+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9537396E242E96D400649E0D /* Author+CoreDataProperties.swift */; };
+		953CEAB624352B9F0023D297 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 953CEAB524352B9F0023D297 /* WebKit.framework */; };
 		956B9408242AC49200058AA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956B9407242AC49200058AA9 /* AppDelegate.swift */; };
 		956B940A242AC49200058AA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956B9409242AC49200058AA9 /* SceneDelegate.swift */; };
 		956B940C242AC49200058AA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956B940B242AC49200058AA9 /* ViewController.swift */; };
@@ -28,6 +29,7 @@
 		9532297C242C04A200E180FA /* Commit+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Commit+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9537396D242E96D400649E0D /* Author+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Author+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9537396E242E96D400649E0D /* Author+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Author+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		953CEAB524352B9F0023D297 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		956B9404242AC49200058AA9 /* Project38.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project38.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		956B9407242AC49200058AA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		956B9409242AC49200058AA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				953CEAB624352B9F0023D297 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,11 +91,20 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		953CEAB424352B9F0023D297 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				953CEAB524352B9F0023D297 /* WebKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		956B93FB242AC49200058AA9 = {
 			isa = PBXGroup;
 			children = (
 				956B9406242AC49200058AA9 /* Project38 */,
 				956B9405242AC49200058AA9 /* Products */,
+				953CEAB424352B9F0023D297 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
