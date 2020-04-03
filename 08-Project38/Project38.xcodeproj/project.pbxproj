@@ -12,6 +12,7 @@
 		9532297E242C04A200E180FA /* Commit+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9532297C242C04A200E180FA /* Commit+CoreDataProperties.swift */; };
 		9537396F242E96D400649E0D /* Author+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9537396D242E96D400649E0D /* Author+CoreDataClass.swift */; };
 		95373970242E96D400649E0D /* Author+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9537396E242E96D400649E0D /* Author+CoreDataProperties.swift */; };
+		953829FB2437B5F6001E63F5 /* UserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953829FA2437B5F6001E63F5 /* UserStorage.swift */; };
 		953CEAB624352B9F0023D297 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 953CEAB524352B9F0023D297 /* WebKit.framework */; };
 		956B9408242AC49200058AA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956B9407242AC49200058AA9 /* AppDelegate.swift */; };
 		956B940A242AC49200058AA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956B9409242AC49200058AA9 /* SceneDelegate.swift */; };
@@ -29,6 +30,7 @@
 		9532297C242C04A200E180FA /* Commit+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Commit+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9537396D242E96D400649E0D /* Author+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Author+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9537396E242E96D400649E0D /* Author+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Author+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		953829FA2437B5F6001E63F5 /* UserStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStorage.swift; sourceTree = "<group>"; };
 		953CEAB524352B9F0023D297 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		956B9404242AC49200058AA9 /* Project38.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project38.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		956B9407242AC49200058AA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				9532297B242C04A200E180FA /* Commit+CoreDataClass.swift */,
 				9532297C242C04A200E180FA /* Commit+CoreDataProperties.swift */,
 				95322974242BEBBE00E180FA /* Project38.xcdatamodeld */,
+				953829FA2437B5F6001E63F5 /* UserStorage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 				956B940C242AC49200058AA9 /* ViewController.swift in Sources */,
 				9532297D242C04A200E180FA /* Commit+CoreDataClass.swift in Sources */,
 				956B9408242AC49200058AA9 /* AppDelegate.swift in Sources */,
+				953829FB2437B5F6001E63F5 /* UserStorage.swift in Sources */,
 				956B941E242AC79B00058AA9 /* DetailViewController.swift in Sources */,
 				956B940A242AC49200058AA9 /* SceneDelegate.swift in Sources */,
 				95322976242BEBBE00E180FA /* Project38.xcdatamodeld in Sources */,

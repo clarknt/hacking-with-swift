@@ -21,6 +21,9 @@ class ViewController: UITableViewController {
 
     let usePagination = true
 
+    // challenge 3
+    var userStorage = UserStorage()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -54,7 +57,7 @@ class ViewController: UITableViewController {
     @objc func fetchCommits() {
         let newestCommitDate = getNewestCommitDate()
 
-//        if let data = try? String(contentsOf: URL(string: "https://api.github.com/repos/apple/swift/commits?per_page=100")!) {
+        //if let data = try? String(contentsOf: URL(string: "https://api.github.com/repos/apple/swift/commits?per_page=100")!) {
         if let data = try? String(contentsOf: URL(string: "https://api.github.com/repos/apple/swift/commits?per_page=100&since=\(newestCommitDate)")!) {
 
             // give the data to SwiftyJSON to parse
@@ -65,16 +68,34 @@ class ViewController: UITableViewController {
 
             print("Received \(jsonCommitArray.count) new commits.")
 
+            // challenge 3
+            var newestDate: Date?
+
             DispatchQueue.main.async { [unowned self] in
                 for jsonCommit in jsonCommitArray {
                     // the following three lines are new
                     let commit = Commit(context: self.container.viewContext)
                     self.configure(commit: commit, usingJSON: jsonCommit)
+
+                    // challenge 3
+                    if let unwrappedNewestDate = newestDate {
+                        if commit.date > unwrappedNewestDate {
+                            newestDate = commit.date
+                        }
+                    }
+                    else {
+                        newestDate = commit.date
+                    }
                 }
 
                 self.saveContext()
 
                 self.loadSavedData()
+
+                // challenge 3
+                if let unwrappedNewestDate = newestDate {
+                    self.saveNewestCommitDate(date: unwrappedNewestDate)
+                }
             }
         }
     }
@@ -113,20 +134,31 @@ class ViewController: UITableViewController {
     }
 
     func getNewestCommitDate() -> String {
+        // challenge 3
         let formatter = ISO8601DateFormatter()
+        return formatter.string(from: userStorage.newestCommitDate.addingTimeInterval(1))
 
-        let newest = Commit.createFetchRequest()
-        let sort = NSSortDescriptor(key: "date", ascending: false)
-        newest.sortDescriptors = [sort]
-        newest.fetchLimit = 1
+        // version before challenge 3
+        //let formatter = ISO8601DateFormatter()
+        //
+        //let newest = Commit.createFetchRequest()
+        //let sort = NSSortDescriptor(key: "date", ascending: false)
+        //newest.sortDescriptors = [sort]
+        //newest.fetchLimit = 1
+        //
+        //if let commits = try? container.viewContext.fetch(newest) {
+        //    if commits.count > 0 {
+        //        return formatter.string(from: commits[0].date.addingTimeInterval(1))
+        //    }
+        //}
+        //
+        //return formatter.string(from: Date(timeIntervalSince1970: 0))
+    }
 
-        if let commits = try? container.viewContext.fetch(newest) {
-            if commits.count > 0 {
-                return formatter.string(from: commits[0].date.addingTimeInterval(1))
-            }
-        }
-
-        return formatter.string(from: Date(timeIntervalSince1970: 0))
+    // challenge 3
+    func saveNewestCommitDate(date: Date) {
+        print("Saving \(date)")
+        userStorage.newestCommitDate = date
     }
 
     func loadSavedData() {
