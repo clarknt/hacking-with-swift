@@ -25,7 +25,8 @@ class DetailViewController: UIViewController {
         webView.navigationDelegate = self
 
         if let detail = self.detailItem {
-            // navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Commit 1/\(detail.author.commits.count)", style: .plain, target: self, action: #selector(showAuthorCommits))
+            // challenge 4
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Commit \(currentCommitNumber(commit: detail))/\(detail.author.commits.count)", style: .plain, target: self, action: #selector(showAuthorCommits))
 
             // challenge 2
             if let url = URL(string: detail.url) {
@@ -34,6 +35,23 @@ class DetailViewController: UIViewController {
             }
         }
     }
+
+    // challenge 4
+    func currentCommitNumber(commit: Commit) -> Int {
+        commit.author.commits.index(of: commit) + 1
+    }
+
+    // challenge 4
+    @objc func showAuthorCommits() {
+        print("Show commits")
+        if let commit = detailItem {
+            if let vc = storyboard?.instantiateViewController(withIdentifier: "Author") as? AuthorViewController {
+                vc.commit = commit
+                navigationController?.pushViewController(vc, animated: true)
+            }
+        }
+    }
+
 }
 
 // challenge 2

@@ -12,6 +12,7 @@
 		9532297E242C04A200E180FA /* Commit+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9532297C242C04A200E180FA /* Commit+CoreDataProperties.swift */; };
 		9537396F242E96D400649E0D /* Author+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9537396D242E96D400649E0D /* Author+CoreDataClass.swift */; };
 		95373970242E96D400649E0D /* Author+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9537396E242E96D400649E0D /* Author+CoreDataProperties.swift */; };
+		9537E06D243BD8790012D970 /* AuthorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9537E06C243BD8790012D970 /* AuthorViewController.swift */; };
 		953829FB2437B5F6001E63F5 /* UserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953829FA2437B5F6001E63F5 /* UserStorage.swift */; };
 		953CEAB624352B9F0023D297 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 953CEAB524352B9F0023D297 /* WebKit.framework */; };
 		956B9408242AC49200058AA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956B9407242AC49200058AA9 /* AppDelegate.swift */; };
@@ -30,6 +31,7 @@
 		9532297C242C04A200E180FA /* Commit+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Commit+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9537396D242E96D400649E0D /* Author+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Author+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9537396E242E96D400649E0D /* Author+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Author+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9537E06C243BD8790012D970 /* AuthorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorViewController.swift; sourceTree = "<group>"; };
 		953829FA2437B5F6001E63F5 /* UserStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStorage.swift; sourceTree = "<group>"; };
 		953CEAB524352B9F0023D297 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		956B9404242AC49200058AA9 /* Project38.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project38.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,10 +90,21 @@
 		9532297F242C09C600E180FA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9537E06C243BD8790012D970 /* AuthorViewController.swift */,
 				956B941D242AC79B00058AA9 /* DetailViewController.swift */,
 				956B940B242AC49200058AA9 /* ViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9537E06E243BD8960012D970 /* Init */ = {
+			isa = PBXGroup;
+			children = (
+				956B9407242AC49200058AA9 /* AppDelegate.swift */,
+				956B9409242AC49200058AA9 /* SceneDelegate.swift */,
+				956B9412242AC49600058AA9 /* LaunchScreen.storyboard */,
+			);
+			path = Init;
 			sourceTree = "<group>";
 		};
 		953CEAB424352B9F0023D297 /* Frameworks */ = {
@@ -123,13 +136,11 @@
 			isa = PBXGroup;
 			children = (
 				9532297F242C09C600E180FA /* Controllers */,
-				95322973242BEB9E00E180FA /* Models */,
 				95322972242BEB8900E180FA /* Frameworks */,
+				9537E06E243BD8960012D970 /* Init */,
+				95322973242BEB9E00E180FA /* Models */,
 				95322971242BEB6600E180FA /* Views */,
-				956B9407242AC49200058AA9 /* AppDelegate.swift */,
-				956B9409242AC49200058AA9 /* SceneDelegate.swift */,
 				956B9410242AC49600058AA9 /* Assets.xcassets */,
-				956B9412242AC49600058AA9 /* LaunchScreen.storyboard */,
 				956B9415242AC49600058AA9 /* Info.plist */,
 			);
 			path = Project38;
@@ -209,6 +220,7 @@
 				956B940C242AC49200058AA9 /* ViewController.swift in Sources */,
 				9532297D242C04A200E180FA /* Commit+CoreDataClass.swift in Sources */,
 				956B9408242AC49200058AA9 /* AppDelegate.swift in Sources */,
+				9537E06D243BD8790012D970 /* AuthorViewController.swift in Sources */,
 				953829FB2437B5F6001E63F5 /* UserStorage.swift in Sources */,
 				956B941E242AC79B00058AA9 /* DetailViewController.swift in Sources */,
 				956B940A242AC49200058AA9 /* SceneDelegate.swift in Sources */,
