@@ -38,7 +38,7 @@ class DetailViewController: UIViewController {
 
     // challenge 4
     func currentCommitNumber(commit: Commit) -> Int {
-        commit.author.commits.index(of: commit) + 1
+        commit.author.commits.count - commit.author.commits.index(of: commit)
     }
 
     // challenge 4

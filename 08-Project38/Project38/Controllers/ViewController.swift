@@ -72,7 +72,8 @@ class ViewController: UITableViewController {
             var newestDate: Date?
 
             DispatchQueue.main.async { [unowned self] in
-                for jsonCommit in jsonCommitArray {
+                // reverse to get a creationDate matching commit orders
+                for jsonCommit in jsonCommitArray.reversed() {
                     // the following three lines are new
                     let commit = Commit(context: self.container.viewContext)
                     self.configure(commit: commit, usingJSON: jsonCommit)
@@ -131,6 +132,12 @@ class ViewController: UITableViewController {
 
         // use the author, either saved or new
         commit.author = commitAuthor
+
+        commit.creationDate = Date().timeIntervalSince1970
+
+        if commit.author.name == "Dan Zheng" {
+            print(commit.date, commit.author.name, commit.creationDate, commit.message)
+        }
     }
 
     func getNewestCommitDate() -> String {
@@ -174,14 +181,17 @@ class ViewController: UITableViewController {
     func loadPaginatedSavedData() {
         if fetchedResultsController == nil {
             let request = Commit.createFetchRequest()
-            let sort = NSSortDescriptor(key: "author.name", ascending: true)
+            let authorNameSort = NSSortDescriptor(key: "author.name", ascending: true)
+            let creationDateSort = NSSortDescriptor(key: "creationDate", ascending: false)
+            request.sortDescriptors = [authorNameSort, creationDateSort]
+
             // to sort by date instead of author
-            // let sort = NSSortDescriptor(key: "date", ascending: false)
-            request.sortDescriptors = [sort]
+            //let sort = NSSortDescriptor(key: "date", ascending: false)
+            //request.sortDescriptors = [sort]
             request.fetchBatchSize = 20
 
             fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: container.viewContext, sectionNameKeyPath: "author.name", cacheName: nil)
-            // to sort by date instead of author
+            // to display without sections
             // fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: container.viewContext, sectionNameKeyPath: nil, cacheName: nil)
             fetchedResultsController.delegate = self
         }
@@ -190,7 +200,7 @@ class ViewController: UITableViewController {
 
         do {
             try fetchedResultsController.performFetch()
-            tableView.reloadData()
+//            tableView.reloadData()
         } catch {
             print("Fetch failed")
         }
@@ -233,18 +243,18 @@ class ViewController: UITableViewController {
             self.loadSavedData()
         })
 
-        ac.addAction(UIAlertAction(title: "Show only Durian commits", style: .default) { [unowned self] _ in
+        ac.addAction(UIAlertAction(title: "Show only Joe's commits", style: .default) { [unowned self] _ in
             self.commitPredicate = NSPredicate(format: "author.name == 'Joe Groff'")
             self.loadSavedData()
         })
 
         // add more name to get some results
-        ac.addAction(UIAlertAction(title: "Show only Pavel commits", style: .default) { [unowned self] _ in
+        ac.addAction(UIAlertAction(title: "Show only Pavel's commits", style: .default) { [unowned self] _ in
             self.commitPredicate = NSPredicate(format: "author.name == 'Pavel Yaskevich'")
             self.loadSavedData()
         })
 
-        ac.addAction(UIAlertAction(title: "Show only Mike commits", style: .default) { [unowned self] _ in
+        ac.addAction(UIAlertAction(title: "Show only Mike's commits", style: .default) { [unowned self] _ in
             self.commitPredicate = NSPredicate(format: "author.name == 'Mike Ash'")
             self.loadSavedData()
         })
@@ -334,7 +344,12 @@ extension ViewController {
 
 extension ViewController: NSFetchedResultsControllerDelegate {
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+
         switch type {
+
+        case .insert:
+            tableView.insertRows(at: [newIndexPath!], with: .automatic)
+
         case .delete:
             tableView.deleteRows(at: [indexPath!], with: .automatic)
 

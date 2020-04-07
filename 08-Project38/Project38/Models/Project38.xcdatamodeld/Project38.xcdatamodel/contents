@@ -9,6 +9,7 @@
         </fetchIndex>
     </entity>
     <entity name="Commit" representedClassName="Commit" syncable="YES">
+        <attribute name="creationDate" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="message" attributeType="String"/>
         <attribute name="sha" attributeType="String"/>
@@ -22,6 +23,6 @@
     </entity>
     <elements>
         <element name="Author" positionX="-63" positionY="9" width="128" height="88"/>
-        <element name="Commit" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="Commit" positionX="-63" positionY="-18" width="128" height="133"/>
     </elements>
 </model>
