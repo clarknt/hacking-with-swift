@@ -16,6 +16,7 @@
 		953B643A243E2A8300403B80 /* Project39Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953B6439243E2A8300403B80 /* Project39Tests.swift */; };
 		953B6445243E2A8300403B80 /* Project39UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953B6444243E2A8300403B80 /* Project39UITests.swift */; };
 		953B6453243E2AE500403B80 /* plays.txt in Resources */ = {isa = PBXBuildFile; fileRef = 953B6452243E2AE500403B80 /* plays.txt */; };
+		953B6455243E2C6F00403B80 /* PlayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953B6454243E2C6F00403B80 /* PlayData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		953B6444243E2A8300403B80 /* Project39UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project39UITests.swift; sourceTree = "<group>"; };
 		953B6446243E2A8300403B80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		953B6452243E2AE500403B80 /* plays.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = plays.txt; sourceTree = "<group>"; };
+		953B6454243E2C6F00403B80 /* PlayData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				953B6424243E2A8200403B80 /* SceneDelegate.swift */,
 				953B6426243E2A8200403B80 /* ViewController.swift */,
 				953B6428243E2A8200403B80 /* Main.storyboard */,
+				953B6454243E2C6F00403B80 /* PlayData.swift */,
 				953B642B243E2A8300403B80 /* Assets.xcassets */,
 				953B642D243E2A8300403B80 /* LaunchScreen.storyboard */,
 				953B6430243E2A8300403B80 /* Info.plist */,
@@ -264,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				953B6427243E2A8200403B80 /* ViewController.swift in Sources */,
+				953B6455243E2C6F00403B80 /* PlayData.swift in Sources */,
 				953B6423243E2A8200403B80 /* AppDelegate.swift in Sources */,
 				953B6425243E2A8200403B80 /* SceneDelegate.swift in Sources */,
 			);
