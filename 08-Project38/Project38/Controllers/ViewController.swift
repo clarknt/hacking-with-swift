@@ -200,7 +200,7 @@ class ViewController: UITableViewController {
 
         do {
             try fetchedResultsController.performFetch()
-//            tableView.reloadData()
+            tableView.reloadData()
         } catch {
             print("Fetch failed")
         }
