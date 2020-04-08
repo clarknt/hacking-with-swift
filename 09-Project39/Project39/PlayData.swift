@@ -10,4 +10,14 @@ import Foundation
 
 class PlayData {
     var allWords = [String]()
+
+    init() {
+        if let path = Bundle.main.path(forResource: "plays", ofType: "txt") {
+            if let plays = try? String(contentsOfFile: path) {
+                // split on anything that is not a-Z or 0-9
+                allWords = plays.components(separatedBy: CharacterSet.alphanumerics.inverted)
+                allWords = allWords.filter { $0 != "" }
+            }
+        }
+    }
 }

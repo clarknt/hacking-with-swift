@@ -52,7 +52,7 @@
 		953B6444243E2A8300403B80 /* Project39UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project39UITests.swift; sourceTree = "<group>"; };
 		953B6446243E2A8300403B80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		953B6452243E2AE500403B80 /* plays.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = plays.txt; sourceTree = "<group>"; };
-		953B6454243E2C6F00403B80 /* PlayData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayData.swift; sourceTree = "<group>"; };
+		953B6454243E2C6F00403B80 /* PlayData.swift */ = {isa = PBXFileReference; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = PlayData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
