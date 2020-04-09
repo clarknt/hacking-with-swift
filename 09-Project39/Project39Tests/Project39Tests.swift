@@ -26,8 +26,15 @@ class Project39Tests: XCTestCase {
 
     func testWordCountsAreCorrect() {
         let playData = PlayData()
-        XCTAssertEqual(playData.wordCounts["home"], 174, "Home does not appear 174 times")
-        XCTAssertEqual(playData.wordCounts["fun"], 4, "Fun does not appear 4 times")
-        XCTAssertEqual(playData.wordCounts["mortal"], 41, "Mortal does not appear 41 times")
+        XCTAssertEqual(playData.wordCounts.count(for: "home"), 174, "Home does not appear 174 times")
+        XCTAssertEqual(playData.wordCounts.count(for: "fun"), 4, "Fun does not appear 4 times")
+        XCTAssertEqual(playData.wordCounts.count(for: "mortal"), 41, "Mortal does not appear 41 times")
+    }
+
+    func testWordsLoadQuickly() {
+        // this runs the code 10 times in a row, and measures time
+        measure {
+            _ = PlayData()
+        }
     }
 }
