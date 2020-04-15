@@ -47,4 +47,36 @@ class Project39UITests: XCTestCase {
 
         XCTAssertEqual(app.tables.cells.count, 56, "There should be 56 words matching 'test'")
     }
+
+    // challenge 1
+    func testUserFilteringByNumber() {
+        // UI tests must launch the application that they test.
+        let app = XCUIApplication()
+        app.launch()
+
+        app.buttons["Search"].tap()
+
+        let filterAlert = app.alerts
+        let textField = filterAlert.textFields.element
+        textField.typeText("1000")
+
+        filterAlert.buttons["Filter"].tap()
+
+        XCTAssertEqual(app.tables.cells.count, 55, "There should be 55 words occuring 1000 times or more")
+    }
+
+    // challenge 2
+    func testCancelUserFiltering() {
+        // UI tests must launch the application that they test.
+        let app = XCUIApplication()
+        app.launch()
+
+        app.buttons["Search"].tap()
+
+        let filterAlert = app.alerts
+        filterAlert.buttons["Cancel"].tap()
+
+        print(app.alerts.count)
+        XCTAssertEqual(app.alerts.count, 0, "There should be no alert visible")
+    }
 }

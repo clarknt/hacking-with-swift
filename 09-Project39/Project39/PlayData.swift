@@ -32,6 +32,12 @@ class PlayData {
     }
 
     func applyUserFilter(_ input: String) {
+        // challenge 4
+        if input.isEmpty {
+            filteredWords = allWords
+            return
+        }
+
         if let userNumber = Int(input) {
             applyFilter { self.wordCounts.count(for: $0) >= userNumber }
         } else {
