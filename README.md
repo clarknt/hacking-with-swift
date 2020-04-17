@@ -11,8 +11,8 @@ First 30 projects are available in the separate repository [100 days of Swift](h
 
 Type               | Number   | Completion
 :---               |  :---:   |   :---:
-Projects           | 37 / 39  | 95%
-Challenges         | 109 / 116 | 94%
+Projects           | 38 / 39  | 97%
+Challenges         | 113 / 116 | 97%
 
 ## Preview
 
@@ -27,6 +27,7 @@ Projects / Topics                                                               
 [Project 36](06-Project36) - *Crashy Plane* <br/>(with challenges)                                        <br/><sub> SpriteKit, collisions, parallax scrolling, SKAudioNode </sub> | ![screen1](06-Project36/screenshots/small/screen01.png) ![screen2](06-Project36/screenshots/small/screen02.png) ![screen3](06-Project36/screenshots/small/screen03.png) 
 [Project 37](07-Project37) - *Psychic Tester* <br/>(with challenges)                                        <br/><sub> WatchOS, WCSession, CAGradientLayer, CAEmitterLayer, card flip effects, 3D Touch </sub> | ![screen1](07-Project37/screenshots/small/screen01.png) ![screen2](07-Project37/screenshots/small/screen02.png) ![screen3](07-Project37/screenshots/small/screen03.png) ![screen4](07-Project37/screenshots/small/screen04.png) 
 [Project 38](08-Project38) - *GitHub Commits* <br/>(with challenges)                                        <br/><sub> WatCore Data, NSFetchRequest, NSManagedObject, NSPredicate, NSSortDescriptor, and NSFetchedResultsController </sub> | ![screen1](08-Project38/screenshots/small/screen01.png) ![screen2](08-Project38/screenshots/small/screen02.png) ![screen3](08-Project38/screenshots/small/screen03.png) ![screen4](08-Project38/screenshots/small/screen04.png) 
+[Project 39](09-Project39) - *Unit testing with XCTest* <br/>(with challenges)                                        <br/><sub> XCTest, measure(), filter(), sort(), NSCountedSet </sub> | ![screen1](09-Project39/screenshots/small/screen01.png) ![screen2](09-Project39/screenshots/small/screen02.png) 
 
 
 
