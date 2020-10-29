@@ -79,6 +79,9 @@ class ViewController: UITableViewController {
                 else {
                     let ac = UIAlertController(title: "Fetch failed", message: "There was a problem fetching the list of whistles; please try again: \(error!.localizedDescription)", preferredStyle: .alert)
                     ac.addAction(UIAlertAction(title: "OK", style: .default))
+                    ac.addAction(UIAlertAction(title: "Retry", style: .default, handler: { _ in
+                        self.loadWhistles()
+                    }))
                     self.present(ac, animated: true)
                 }
             }

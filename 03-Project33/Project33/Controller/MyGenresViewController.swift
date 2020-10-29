@@ -44,6 +44,7 @@ class MyGenresViewController: UITableViewController {
                                 let ac = UIAlertController(title: "Saving failed", message: "There was a problem saving your genres: \(error!.localizedDescription)\nPlease try again", preferredStyle: .alert)
                                 ac.addAction(UIAlertAction(title: "OK", style: .default))
                                 present(ac, animated: true)
+                                return
                             }
                         }
                     }
@@ -67,7 +68,8 @@ class MyGenresViewController: UITableViewController {
                         }
                     }
                 }
-            } else {
+            }
+            else {
                 let ac = UIAlertController(title: "Saving failed", message: "There was a problem saving your genres: \(error!.localizedDescription)\nPlease try again", preferredStyle: .alert)
                 ac.addAction(UIAlertAction(title: "OK", style: .default))
                 present(ac, animated: true)
