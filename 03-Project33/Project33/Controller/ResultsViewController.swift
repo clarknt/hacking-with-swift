@@ -25,9 +25,11 @@ class ResultsViewController: UITableViewController {
 
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
 
+        // challenge 1
         loadData()
     }
 
+    // challenge 1
     func loadData() {
         let reference = CKRecord.Reference(recordID: whistle.recordID, action: .deleteSelf)
         let pred = NSPredicate(format: "owningWhistle == %@", reference)
@@ -38,6 +40,7 @@ class ResultsViewController: UITableViewController {
         CKContainer.default().publicCloudDatabase.perform(query, inZoneWith: nil) { [unowned self] results, error in
             if let error = error {
                 DispatchQueue.main.async {
+                    // challenge 1 & challenge 5
                     let ac = UIAlertController(title: "Loading failed", message: "There was a problem loading suggestions: \(error.localizedDescription)\nPlease try again", preferredStyle: .alert)
                     ac.addAction(UIAlertAction(title: "OK", style: .default))
                     ac.addAction(UIAlertAction(title: "Retry", style: .default, handler: { _ in
@@ -71,8 +74,10 @@ class ResultsViewController: UITableViewController {
                 DispatchQueue.main.async {
                     self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Download", style: .plain, target: self, action: #selector(self.downloadTapped))
 
+                    // challenge 5
                     let ac = UIAlertController(title: "Downloading failed", message: "There was a problem downloading the whistle: \(error.localizedDescription)\nPlease try again", preferredStyle: .alert)
                     ac.addAction(UIAlertAction(title: "OK", style: .default))
+                    // challenge 1
                     ac.addAction(UIAlertAction(title: "Retry", style: .default, handler: { _ in
                         self.downloadTapped()
                     }))

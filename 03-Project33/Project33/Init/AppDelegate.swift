@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
             if let error = error {
                 DispatchQueue.main.async { [weak self] in
+                    // challenge 5
                     let ac = UIAlertController(title: "Notifications failed", message: "There was a problem authorizing notifications: \(error.localizedDescription)\nPlease try again", preferredStyle: .alert)
                     ac.addAction(UIAlertAction(title: "OK", style: .default))
                     self?.window?.rootViewController?.present(ac, animated: true)

@@ -22,6 +22,12 @@ class AddCommentsViewController: UIViewController, UITextViewDelegate {
         title = "Comments"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Submit", style: .plain, target: self, action: #selector(submitTapped))
         comments.text = placeholder
+
+        // challenge 3
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+
     }
 
     @objc func submitTapped() {
@@ -64,4 +70,25 @@ class AddCommentsViewController: UIViewController, UITextViewDelegate {
         comments.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         comments.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
+
+    // challenge 3
+    @objc func adjustForKeyboard(notification: Notification) {
+        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+
+        let keyboardScreenEndFrame = keyboardValue.cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            comments.contentInset = .zero
+        }
+        else {
+            comments.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom, right: 0)
+        }
+
+        comments.scrollIndicatorInsets = comments.contentInset
+
+        let selectedRange = comments.selectedRange
+        comments.scrollRangeToVisible(selectedRange)
+    }
+
 }

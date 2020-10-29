@@ -41,6 +41,7 @@ class MyGenresViewController: UITableViewController {
                     for subscription in subscriptions {
                         database.delete(withSubscriptionID: subscription.subscriptionID) { str, error in
                             if error != nil {
+                                // challenge 5
                                 let ac = UIAlertController(title: "Saving failed", message: "There was a problem saving your genres: \(error!.localizedDescription)\nPlease try again", preferredStyle: .alert)
                                 ac.addAction(UIAlertAction(title: "OK", style: .default))
                                 present(ac, animated: true)
@@ -61,6 +62,7 @@ class MyGenresViewController: UITableViewController {
 
                         database.save(subscription) { result, error in
                             if let error = error {
+                                // challenge 5
                                 let ac = UIAlertController(title: "Saving failed", message: "There was a problem saving your genres: \(error.localizedDescription)\nPlease try again", preferredStyle: .alert)
                                 ac.addAction(UIAlertAction(title: "OK", style: .default))
                                 present(ac, animated: true)
@@ -70,6 +72,7 @@ class MyGenresViewController: UITableViewController {
                 }
             }
             else {
+                // challenge 5
                 let ac = UIAlertController(title: "Saving failed", message: "There was a problem saving your genres: \(error!.localizedDescription)\nPlease try again", preferredStyle: .alert)
                 ac.addAction(UIAlertAction(title: "OK", style: .default))
                 present(ac, animated: true)
