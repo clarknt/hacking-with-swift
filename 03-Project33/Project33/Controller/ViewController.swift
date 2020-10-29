@@ -113,7 +113,8 @@ class ViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.accessoryType = .disclosureIndicator
         cell.textLabel?.attributedText =  makeAttributedString(title: whistles[indexPath.row].genre, subtitle: whistles[indexPath.row].comments)
-        cell.textLabel?.numberOfLines = 0
+        // challenge 4 - limit to title + 3 lines
+        cell.textLabel?.numberOfLines = 4
         return cell
     }
 

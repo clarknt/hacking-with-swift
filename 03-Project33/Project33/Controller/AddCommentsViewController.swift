@@ -38,7 +38,8 @@ class AddCommentsViewController: UIViewController, UITextViewDelegate {
             vc.comments = ""
         }
         else {
-            vc.comments = comments.text
+            // challenge 4 - replace multiple line breaks with single line breaks
+            vc.comments = comments.text.replacingOccurrences(of: "\\n{2,}", with: "\n", options: .regularExpression)
         }
 
         navigationController?.pushViewController(vc, animated: true)
